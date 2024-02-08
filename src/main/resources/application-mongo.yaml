@@ -1,0 +1,10 @@
+#URl for the database of the local system.
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/TestDB
+  main:
+    allow-bean-definition-overriding: true
+#Setting server port umber for the porject while using mysql database.
+server:
+  port: 8082

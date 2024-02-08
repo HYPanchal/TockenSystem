@@ -1,0 +1,5 @@
+#Setting which configuration file should be activated.
+#spring:
+#  profiles:
+#    active:
+#    - mongo

@@ -1,0 +1,25 @@
+#URl for the database of the local system.
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/TokenSystem
+#user name of the local database.
+    username: root
+#password of the local database.
+    password: root
+#Setting mysql driver for connecting local mysql database.
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#Setting hibernate dialect for MySQL.
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+#Setting dll-auto as update 
+#This will create table in local database and update if exist.
+    hibernate:
+      ddl-auto: create
+#show-sql = true will show sql query's on the console.
+    show-sql: true
+    
+  main:
+    allow-bean-definition-overriding: true
+#Setting server port umber for the porject while using mysql database.
+server:
+  port: 8081
