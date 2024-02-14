@@ -88,4 +88,24 @@ public class Controller {
 		// Returning the List of Employee objects in the form of response.
 		return ResponseEntity.ok(headService.empList());
 	}
+
+	/*
+	 * This is a get mapping API for Testing.
+	 * 
+	 * @author :- Hrushikesh
+	 * 
+	 * @param :- No parameters required.
+	 * 
+	 * @return :- String.
+	 * 
+	 * @dateCreated :- 14-02-24
+	 * 
+	 * @lastUpdate :- 14-02-24
+	 */
+	// Mapping method with @GetMapping annotation with a specified URl (/test).
+	@GetMapping("/test")
+	private String test(){
+		return "Project is online";
+	}
+
 }
