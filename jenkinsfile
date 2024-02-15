@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+
+    tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        maven "Maven"
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+               checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/HYPanchal/TockenSystem']])
+
+                // Build the jar of project
+                bat "mvn clean install"
+            }
+        }
+        stage('Docker Image'){
+            steps{
+                script{
+                    // Creating Docker image
+                    bat "docker build -t token-system-image ."
+                }
+            }
+        }
+        stage('Run Image'){
+            steps{
+                script{
+                    // Running docker image
+                    bat "docker run -p 8080:8080 token-system-image"
+                }
+            }
+        }
+    }
+}
